@@ -7,22 +7,25 @@
 - [Tools](#tools)
 - [Data Cleaning](#data-cleaning)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Key Analyses Performed](#key-analysis-performed)
 - [My Data Analysis Approach](#my-data-analysis-approach)
 - [Result And Findings ](#result-and-findings)
 - [Key Insights](#key-insights)
+- [Ideas for Deeper Analysis](#ideas-for-deeper-analysis)
 - [Recommendations](#recommendations)
 - [References](#references)
 
 
 
 ### Objective
- The objective is to create a dashboard highlighting key business metrics and user behavior patterns within the platform.
+ The objective of this analysis is to:
 
+Understand customer behavior and sales patterns in order to uncover what factors truly influence purchases, with the goal of helping the business make data-driven decisions to improve marketing strategies, optimize product offerings, and increase revenue.
 
- ###
- I  leverage SQL to efficiently query and structure the User and Transaction datasets I used Python to visualize the data. i worked on 2different tables with about 160000 data entries.
+### Objective in simpler terms:
+It aims to figure out who buys, when they buy, and what really drives them to spend, so the company can focus on what works and drop what doesn’t.
 
-### Data Source: I got ths data from a Financial services company that does Currency Exchange.
+### Data Source: Kaggle
 
 ### Tools 
  Microsoft Excel, MySQL, Python and Powerpoint.
@@ -41,83 +44,72 @@ In the intial dat presentation phase , i perform the following task
 - 
 
 # Exploratory Data Analysis
-Data Files Provided:
-- **Users Table**: Contains information about users, including registration details, KYC
-status, deactivation status, and occupation.
-- **Transactions Table**: Contains transaction details, including amounts, currency corridors,
-and transaction dates.
-See Link to Data Below
-User_Table
-Transaction Table
-Analysis and Visualization Tasks:
-1. Users Analysis
-Provide insights into the user base by analyzing the following metrics:Track and visualize
-user growth Daily,WOW,MOM.
-- **Total Number of Users**,
-- **Verified and Non-Verified Users**
-- **Average Volume per User**
-- **Max and Min Transaction Volume**
-- **Age Distribution**:
-- **Gender Distribution**
-- **User Location**:
-- **User Profession**:
-2. KYC Status:
-Provide insights into the status of the KYC process:
-- **Total KYC Passed**: Number of users whose KYC process was successfully completed.
-- **KYC Not Started**: Number of users who have not started the KYC process.
-- **KYC Failed**: Number of users who failed the KYC process.
-- **KYC Pending**: Number of users with pending KYC status.
-- **KYC In Review**: Number of users with KYC status in Manual.
+### Key Questions Answered
+1. What is the gender distribution of customers?
+→ The customer base is fairly balanced, with a slight male dominance.
 
-KYC Status: Breakdown of users by their KYC status, using the following keys:
-1 = Not Started,2 = Pending, 3 = Passed, 4 = In Review, 6 = Failed
-3. Transaction Analysis:
-Analyze transaction data with the following KPIs:
-- **Total Number of Transactions**: Display the total number of transactions .
-- **Total Amount of Transactions ($)**: Calculate the total transaction value IN CAD(Use
-BaseAmount).
-- **Transaction Volume by SendCurrency Corridor**: Breakdown of the volume by each
-Sendcurrency corridor (e.g., CAD,NGN),Sender Location (CAD, AUS, NG, etc.)insights by
-user location to see how each country is performing..
-- **Transaction Volume by Send Currency and Receive currency Corridor**: Breakdown of
-the volume by corridor (e.g., CAD-NGN,NGN-GBP).
-- **Growth per Corridor in Volume**: Analyze growth in volume per corridor(Monthly only).
-- **Transactions Daily, Month-on-Month (MoM) and Week-on-Week (WoW)**: Visualize
-transaction growth by volume and number for MoM and WoW comparisons(
-NOTE: THE BASE AMOUNT COLUMN IS THE VALUE OF THE SEND AMOUNT
-CONVERTED TO CAD, SO THIS CAN BE USED AS FOR THE TOTAL TRANSACTION
-VOLUME IN CAD AND YOU CAN REPRESENT ALL THE VALUES IN CAD EXCEPT
-WHEN BREAKING DOWN BY CORRIDORS
-4. Retention:**
-Track user and transaction retention with the following metrics:
-- **Active Users**: Monthly and weekly active users(Transacting Users).
-- **Users with More Than 3, 5, 10, and 20 Transactions**: Breakdown of users based on
-their transaction volume (e.g., more than 3, 5, 10, and 20 transactions).
-- **Date (Day, Week, Month)**: Provide the ability to view insights by different date ranges.
-5. Funnel Analysis:
-Perform a funnel analysis on user activity across different stages of the user journey, and
-visualize the conversion rates and drop-off points.
-● Funnel Stages:
-○ Acquisition → Complete Profile → KYC Verified → Transaction
-● Visual Representation of the Funnel: Create a funnel chart or flow diagram that
-represents the stages of the user journey.
-● Conversion Rate & Drop-off Points: Analyze and calculate the conversion rates at
-each stage of the funnel and identify key drop-off points where users are
-disengaging.
-● Key Drop-off Points: Discuss the drop-off points in detail, considering factors that
-may contribute to the user disengagement.
-● Strategies to Address Drop-offs: Propose actionable strategies to address these
-drop-offs and improve the overall funnel conversion rate.
+2. Which branch has the highest sales performance?
+→ Branch A leads in total revenue and transaction volume.
 
-Additional Requirements:
-- **Dashboard Design**: Ensure the dashboard is intuitive, user-friendly, and well-organized.
-Use appropriate colors and labels to improve readability.
-- **Filters**: Use filters if neccessary to allow users to drill down into specific segments like
-date range, user tier, or currency.
-- **Insight Generation**: Based on your analysis, provide insights into key trends and
-patterns.
-- **Recommendations**: Based on your findings, offer actionable recommendations to
-improve user engagement, transaction volumes, and overall performance.
+3. Which customer type (Member or Normal) generates higher revenue?
+→ Members spend more on average than Normal customers.
+
+4. What is the preferred payment method across genders?
+→ Female customers prefer e-wallets, while males lean toward cash.
+
+5. Which product lines are most profitable?
+→ The Food and Beverage and Fashion Accessories product lines are top performers.
+
+6. How does customer satisfaction vary by branch and gender?
+→ Branch A shows higher customer ratings, with female customers reporting slightly higher satisfaction.
+
+7. Which customer segment is the most loyal and profitable?
+→ Loyal customers (repeat buyers) contribute significantly to revenue and rate their experiences more positively.
+
+8. How does customer education level impact loyalty and spending?
+→ Customers with higher education (especially Master's degrees) show stronger loyalty and preference for digital payments.
+
+9. Is there a trend in purchase behavior by time, gender, or payment method?
+→ Spending patterns vary by time of day and gender, with peak sales often occurring during midday.
+
+### Key Analyses Performed
+- Pivot & Unpivot:
+
+Used SQL to pivot data for clearer visualization (e.g., seasonal sales by category).
+
+Discovered how SUM(CASE WHEN...) works for pivoting.
+
+- Sales by Demographics:
+
+- Gender: Male vs. female sales compared.
+
+- Age: Age grouped using quartiles (Q1=31, Median=44, Q3=57).
+
+- Location: Top 10 performing locations by sales.
+
+- Sales by Category & Season:
+
+Clothing, Accessories, Footwear, and Outerwear across Fall, Spring, Summer, and Winter.
+
+Fall is the season with the highest total sales.
+
+- Customer Insights:
+
+Subscription users buy less than non-subscribers.
+
+Discounts, promo codes, and subscriptions do not significantly boost sales.
+
+No correlation found between age and total spending.
+
+Item color has no impact on sales.
+
+- Sales Behavior Patterns:
+
+Frequency of purchases vs. sales amount.
+
+Explored gender, age, and review relationships with sales.
+
+Hat was the top-selling item in Fall, but due to lack of quantity data, can’t confirm if it's due to price or volume.
 
 
 
@@ -872,56 +864,90 @@ print(df) #Dataframe is print the data as an excel table
 
 
 ### Result And Findings 
+### Findings
+1. Sales by Season and Category
+Fall is the highest-performing season, especially in the Clothing and Accessories categories.
 
-The analysis result are summarized as follows:
-- The success of a transaction isn’t contingent on having a UserID, I have included all
-transaction rows in the analysis—even those with missing UserIDs—to ensure we
-capture the full volume of successful transactions.
-The objective was to create a dashboard highlighting key business metrics and user behavior patterns within the platform.
-### Where is the largest drop-off in the funnel?
-  The biggest drop occurs between Acquisition (21,906) and Complete Profile
-(12,901), indicating many new sign-ups do not finish their profiles.
-- Simplify Profile Completion: Reduce required steps and provide clear instructions
-to help users quickly finish their profiles.
-- Highlight KYC Benefits: Emphasize the advantages (e.g., faster transactions, higher
-limits) to motivate users to verify their accounts.
+Across all seasons, Clothing consistently outperforms other categories, followed by Accessories, Footwear, and Outerwear.
 
-### What strategies can address this drop-off?
+2. Sales by Gender
+Female customers contribute more to total sales compared to male customers.
 
-Simplify Profile Completion – Make required steps fewer and more intuitive.
+Both genders show significant interest in Clothing, but females purchase slightly more across all categories.
 
-Provide Clear Benefits – Highlight why completing a profile is valuable (e.g.,
-faster transactions).
+3. Subscription and Discounts
+Customers without subscriptions spend more than those with subscriptions.
 
-Automated Reminders – Send friendly follow-ups via email or in-app prompts
-to encourage users to complete their profiles.
-Automated Reminders and Incentives: Send follow-ups or small rewards to
-nudge users who haven’t completed their profiles or KYC.
+Discounts, promo codes, and subscriptions do not positively influence sales as expected. The combination (3-in-1 offer) appears to have minimal or no impact on revenue.
 
-Promote First Transactions: Offer clear guides or promos to encourage
-verified users to transact, keeping them active in the funnel.
+4. Demographic Insights
+The average customer age is 44 years, with the majority falling between 31 and 57 years (Q1 to Q3).
 
-### Key Insights
-![User Performance Report.pptx](https://github.com/user-attachments/files/19870383/User.Performance.Report.pptx)
-![Uploading image.png…]()
+There is no clear correlation between age and total sales, indicating that people across different age brackets shop equally.
 
+The store does not target or attract a teenage demographic, as the minimum age of customers is 18.
 
-💡Tracked and visualize user growth and demographic breakdowns.
+5. Location-Based Insights
+Sales are concentrated in the top 10 locations, suggesting a strong regional performance.
 
-💡Analyzed the efficiency of the KYC processes.
+These high-performing locations could represent urban areas or regions with higher purchasing power.
 
-💡Insight on transaction flow across different currency corridors and user locations.
+6. Review, Gender, and Sales Relationship
+There is no strong correlation between reviews and sales.
 
-💡Measured user and transaction retention.
+Linking reviews with gender shows that gender does not significantly affect review ratings or influence purchase decisions based on reviews.
 
-💡Identified key drop-off points in the user journey and suggesting actionable improvements.
+7. Data Limitation – Quantity vs. Revenue
+The dataset does not include the quantity of items sold, which makes it impossible to determine whether an item’s popularity is due to its price or volume sold.
+
+Example: “Hat” appears to perform well in fall, but this might be due to high unit price rather than high quantity sold.
 
 ### Recommendations
-📌Simplify Profile Completion: Reduce required steps and provide clear instructions
-to help users quickly finish their profiles.
+1. Improve Data Collection
+Include quantity sold per item in future datasets to enable more accurate analysis of best-selling items by volume, not just by revenue.
 
-📌 Highlight KYC Benefits: Emphasize the advantages (e.g., faster transactions, higher
-limits) to motivate users to verify their accounts.
+Collect product-level reviews, stock quantity, and item price, which will help distinguish price-driven sales from popularity.
+
+2. Rethink Subscription and Discount Strategies
+Since subscriptions and discounts are not improving sales, the company should:
+
+Re-evaluate its loyalty programs to provide more attractive and personalized incentives.
+
+Consider A/B testing various discount levels and types (e.g., % off vs. BOGO) to determine more effective offers.
+
+3. Focus Marketing on High-Performing Seasons and Categories
+Boost marketing efforts during the Fall season, especially around Clothing and Accessories.
+
+Allocate more ad spend and promotions to top-selling locations and demographics (age 31–57).
+
+4. Expand Target Audience
+Consider developing youth-specific product lines to tap into the teenage market (currently unrepresented).
+
+Explore customized marketing campaigns for different age groups using the quantile-based age segmentation.
+
+5. Enhance Customer Segmentation
+Segment customers not just by age and gender, but by purchase frequency and item category.
+
+Use this segmentation to implement targeted email campaigns, product recommendations, and retargeting ads.
+
+6. Sales Prediction and Forecasting
+Use the current dataset to build predictive models to forecast:
+
+High-demand seasons
+
+Likely-to-return customers
+
+Category performance over time.
+
+### Ideas for Deeper Analysis
+Segment analysis: Sales by age group, gender, category, and location.
+
+Tie in reviews with sales and demographics.
+
+Analyze subscription vs. non-subscription sales patterns.
+
+Look into sales forecasting and customer retention models.
+
 
 ### References
 1. SQl For Business Anlayisis by Werty
