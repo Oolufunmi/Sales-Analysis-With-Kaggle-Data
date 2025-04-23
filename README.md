@@ -1,3 +1,130 @@
+# Exploartory-Data-Analysis-on-Kaggle-data
+
+
+## Table Of Content
+---
+- [Objective](#objective)
+- [Tools](#tools)
+- [Data Cleaning](#data-cleaning)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [My Data Analysis Approach](#my-data-analysis-approach)
+- [Result And Findings ](#result-and-findings)
+- [Key Insights](#key-insights)
+- [Recommendations](#recommendations)
+- [References](#references)
+
+
+
+### Objective
+ The objective is to create a dashboard highlighting key business metrics and user behavior patterns within the platform.
+
+
+ ###
+ I  leverage SQL to efficiently query and structure the User and Transaction datasets I used Python to visualize the data. i worked on 2different tables with about 160000 data entries.
+
+### Data Source: I got ths data from a Financial services company that does Currency Exchange.
+
+### Tools 
+ Microsoft Excel, MySQL, Python and Powerpoint.
+ 
+- Microsoft Excel: To properly view all the data entries and for data cleaning.
+     - [Download here](https://microsoft.com)
+- MySQL: To write Queries that solve specfic Business problem.
+- Python: To visualize qriiten Sql query ( I connected MySql with Python).
+- Powerpoint : To Present Insight from Analytics.
+
+### Data Cleaning
+In the intial dat presentation phase , i perform the following task
+- Data loading and Inspection
+- Handling missing values
+- Data Cleaning and Formatting
+- 
+
+# Exploratory Data Analysis
+Data Files Provided:
+- **Users Table**: Contains information about users, including registration details, KYC
+status, deactivation status, and occupation.
+- **Transactions Table**: Contains transaction details, including amounts, currency corridors,
+and transaction dates.
+See Link to Data Below
+User_Table
+Transaction Table
+Analysis and Visualization Tasks:
+1. Users Analysis
+Provide insights into the user base by analyzing the following metrics:Track and visualize
+user growth Daily,WOW,MOM.
+- **Total Number of Users**,
+- **Verified and Non-Verified Users**
+- **Average Volume per User**
+- **Max and Min Transaction Volume**
+- **Age Distribution**:
+- **Gender Distribution**
+- **User Location**:
+- **User Profession**:
+2. KYC Status:
+Provide insights into the status of the KYC process:
+- **Total KYC Passed**: Number of users whose KYC process was successfully completed.
+- **KYC Not Started**: Number of users who have not started the KYC process.
+- **KYC Failed**: Number of users who failed the KYC process.
+- **KYC Pending**: Number of users with pending KYC status.
+- **KYC In Review**: Number of users with KYC status in Manual.
+
+KYC Status: Breakdown of users by their KYC status, using the following keys:
+1 = Not Started,2 = Pending, 3 = Passed, 4 = In Review, 6 = Failed
+3. Transaction Analysis:
+Analyze transaction data with the following KPIs:
+- **Total Number of Transactions**: Display the total number of transactions .
+- **Total Amount of Transactions ($)**: Calculate the total transaction value IN CAD(Use
+BaseAmount).
+- **Transaction Volume by SendCurrency Corridor**: Breakdown of the volume by each
+Sendcurrency corridor (e.g., CAD,NGN),Sender Location (CAD, AUS, NG, etc.)insights by
+user location to see how each country is performing..
+- **Transaction Volume by Send Currency and Receive currency Corridor**: Breakdown of
+the volume by corridor (e.g., CAD-NGN,NGN-GBP).
+- **Growth per Corridor in Volume**: Analyze growth in volume per corridor(Monthly only).
+- **Transactions Daily, Month-on-Month (MoM) and Week-on-Week (WoW)**: Visualize
+transaction growth by volume and number for MoM and WoW comparisons(
+NOTE: THE BASE AMOUNT COLUMN IS THE VALUE OF THE SEND AMOUNT
+CONVERTED TO CAD, SO THIS CAN BE USED AS FOR THE TOTAL TRANSACTION
+VOLUME IN CAD AND YOU CAN REPRESENT ALL THE VALUES IN CAD EXCEPT
+WHEN BREAKING DOWN BY CORRIDORS
+4. Retention:**
+Track user and transaction retention with the following metrics:
+- **Active Users**: Monthly and weekly active users(Transacting Users).
+- **Users with More Than 3, 5, 10, and 20 Transactions**: Breakdown of users based on
+their transaction volume (e.g., more than 3, 5, 10, and 20 transactions).
+- **Date (Day, Week, Month)**: Provide the ability to view insights by different date ranges.
+5. Funnel Analysis:
+Perform a funnel analysis on user activity across different stages of the user journey, and
+visualize the conversion rates and drop-off points.
+● Funnel Stages:
+○ Acquisition → Complete Profile → KYC Verified → Transaction
+● Visual Representation of the Funnel: Create a funnel chart or flow diagram that
+represents the stages of the user journey.
+● Conversion Rate & Drop-off Points: Analyze and calculate the conversion rates at
+each stage of the funnel and identify key drop-off points where users are
+disengaging.
+● Key Drop-off Points: Discuss the drop-off points in detail, considering factors that
+may contribute to the user disengagement.
+● Strategies to Address Drop-offs: Propose actionable strategies to address these
+drop-offs and improve the overall funnel conversion rate.
+
+Additional Requirements:
+- **Dashboard Design**: Ensure the dashboard is intuitive, user-friendly, and well-organized.
+Use appropriate colors and labels to improve readability.
+- **Filters**: Use filters if neccessary to allow users to drill down into specific segments like
+date range, user tier, or currency.
+- **Insight Generation**: Based on your analysis, provide insights into key trends and
+patterns.
+- **Recommendations**: Based on your findings, offer actionable recommendations to
+improve user engagement, transaction volumes, and overall performance.
+
+
+
+### My Data Analysis Approach📌
+
+Include the code and features work with
+```Python
 # Sales-Analysis-With-Kaggle-Data
 I did an Explorative data Analysis for a sales data on Kaggle
 import pandas as pd
@@ -75,8 +202,7 @@ df = pd.DataFrame(results, columns = ['sum(Amount)','Subs'])
 #df = pd. DataFrame (results,columns = ['Location','count(Location)'])
 #df = pd.DataFrame(results, columns = ['PaymentMethod','count(PaymentMethod)'])
 print(df) #Dataframe is print the data as an excel table
-#
-# #BAR GRAPH OF SALES AND SUCCRIPTION
+## #BAR GRAPH OF SALES AND SUCCRIPTION
 # #Bar chart for sum(Amount)  by Subscrition
 # plt.figure(figsize=(6, 4))
 # SubscriptionCategory= {
@@ -172,6 +298,7 @@ print(df) #Dataframe is print the data as an excel table
 #     plt.text(value + 50, bar.get_y() + bar.get_height() / 2, f'{value}', va='center', fontsize=10)
 #
 # # Invert the y-axis to show the items with the highest sales at the top
+
 # plt.gca().invert_yaxis()
 #
 # # Adjust layout to ensure everything fits
@@ -233,8 +360,6 @@ print(df) #Dataframe is print the data as an excel table
 # plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
 # # plt.grid(True) # this will add graph background to the graph, you can remove it to make your graph look plain or change the true in front of it to False
 # plt.show()
-
-
 #Plot a pie chart using the DataFrame
 #pie chart
 # plt.figure(figsize=(8, 8))
@@ -743,3 +868,92 @@ print(df) #Dataframe is print the data as an excel table
 # # Save the chart as an image
 # plt.savefig('Revenue by Item in Fall.png', dpi=300)
 # plt.show()
+```
+
+
+### Result And Findings 
+
+The analysis result are summarized as follows:
+- The success of a transaction isn’t contingent on having a UserID, I have included all
+transaction rows in the analysis—even those with missing UserIDs—to ensure we
+capture the full volume of successful transactions.
+The objective was to create a dashboard highlighting key business metrics and user behavior patterns within the platform.
+### Where is the largest drop-off in the funnel?
+  The biggest drop occurs between Acquisition (21,906) and Complete Profile
+(12,901), indicating many new sign-ups do not finish their profiles.
+- Simplify Profile Completion: Reduce required steps and provide clear instructions
+to help users quickly finish their profiles.
+- Highlight KYC Benefits: Emphasize the advantages (e.g., faster transactions, higher
+limits) to motivate users to verify their accounts.
+
+### What strategies can address this drop-off?
+
+Simplify Profile Completion – Make required steps fewer and more intuitive.
+
+Provide Clear Benefits – Highlight why completing a profile is valuable (e.g.,
+faster transactions).
+
+Automated Reminders – Send friendly follow-ups via email or in-app prompts
+to encourage users to complete their profiles.
+Automated Reminders and Incentives: Send follow-ups or small rewards to
+nudge users who haven’t completed their profiles or KYC.
+
+Promote First Transactions: Offer clear guides or promos to encourage
+verified users to transact, keeping them active in the funnel.
+
+### Key Insights
+![User Performance Report.pptx](https://github.com/user-attachments/files/19870383/User.Performance.Report.pptx)
+![Uploading image.png…]()
+
+
+💡Tracked and visualize user growth and demographic breakdowns.
+
+💡Analyzed the efficiency of the KYC processes.
+
+💡Insight on transaction flow across different currency corridors and user locations.
+
+💡Measured user and transaction retention.
+
+💡Identified key drop-off points in the user journey and suggesting actionable improvements.
+
+### Recommendations
+📌Simplify Profile Completion: Reduce required steps and provide clear instructions
+to help users quickly finish their profiles.
+
+📌 Highlight KYC Benefits: Emphasize the advantages (e.g., faster transactions, higher
+limits) to motivate users to verify their accounts.
+
+### References
+1. SQl For Business Anlayisis by Werty
+2. YOutube Tutorials By Alex the Data Analyst
+
+|Heading1|Heading2|
+|-------|----------|
+|content1|content2|
+|Python1|pyhton2|
+|MySql1|Mysql2|
+
+
+#another way to write code here 🫵
+
+
+`select all from customers`
+
+*to write in italic*
+
+
+😄
+💻 
+🙂
+🆒 😄 💻 🙂 🆒 😄 💻 🙂 🆒 😄 💻 🙂 🆒 😄 💻 🙂 🆒 😄 💻 🙂 🆒 😄 💻 🙂 🆒 
+
+
+
+
+
+
+
+
+
+
+
