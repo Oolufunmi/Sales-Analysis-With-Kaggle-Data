@@ -11,6 +11,7 @@
 - [Result And Findings ](#result-and-findings)
 - [Ideas for Deeper Analysis](#ideas-for-deeper-analysis)
 - [Recommendations](#recommendations)
+- [Recommdation Summary](#recommendation-summary)
 - [References](#references)
 
 
@@ -936,6 +937,15 @@ High-demand seasons
 Likely-to-return customers
 
 Category performance over time.
+
+### Recommendation Summary
+Focus marketing on high-performing segments and branches
+
+Promote digital payments and membership programs
+
+Train staff in lower-rated branches to improve service quality
+
+
 
 ### Ideas for Deeper Analysis
 Segment analysis: Sales by age group, gender, category, and location.
